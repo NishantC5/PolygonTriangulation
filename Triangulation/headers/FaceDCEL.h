@@ -1,5 +1,5 @@
 #pragma once
-#include "HalfEdgeDCEL.h"
+class HalfEdgeDCEL;
 class FaceDCEL {
 public:
 	HalfEdgeDCEL* incidentEdge;

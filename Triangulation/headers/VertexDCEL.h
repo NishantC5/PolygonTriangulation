@@ -1,6 +1,6 @@
 #pragma once
 #include <glm/glm/glm.hpp>
-#include "HalfEdgeDCEL.h"
+class HalfEdgeDCEL;
 class VertexDCEL {
 public:
 	glm::vec2 V;
