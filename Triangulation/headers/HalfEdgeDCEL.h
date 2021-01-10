@@ -9,4 +9,5 @@ public:
 	HalfEdgeDCEL* twin;
 	VertexDCEL* origin;
 	FaceDCEL* incidentFace;
+	HalfEdgeDCEL();
 };
