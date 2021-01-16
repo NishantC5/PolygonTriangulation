@@ -1,6 +1,5 @@
-#include <glew.h>
-#include <glfw3.h>
-#include <iostream>
+#include "../headers/pch.h"
+#include "../headers/DCEL.h"
 
 int main(void)
 {
@@ -17,6 +16,15 @@ int main(void)
         glfwTerminate();
         return -1;
     }
+
+    std::vector<glm::vec2> polygon;
+    polygon.push_back(glm::vec2(0, 0));
+    polygon.push_back(glm::vec2(2, -1));
+    polygon.push_back(glm::vec2(3, -1));
+    polygon.push_back(glm::vec2(2.5, 1));
+    polygon.push_back(glm::vec2(2.25, 2));
+
+    DCEL dcel = DCEL(polygon);
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
