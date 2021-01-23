@@ -165,6 +165,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../headers/pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="src\Source.cpp" />
+    <ClCompile Include="src\Transformations.cpp" />
     <ClCompile Include="src\VertexDCEL.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,7 @@
     <ClInclude Include="headers\HalfEdgeDCEL.h" />
     <ClInclude Include="headers\Input.h" />
     <ClInclude Include="headers\pch.h" />
+    <ClInclude Include="headers\Transformations.h" />
     <ClInclude Include="headers\VertexDCEL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
