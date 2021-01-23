@@ -10,20 +10,26 @@ DCEL::DCEL(std::vector<glm::vec2> points) {
 		std::reverse(points.begin(),points.end());
 	HalfEdgeDCEL* prevLeftEdge = nullptr;
 	HalfEdgeDCEL* prevRightEdge = nullptr;
+	FaceDCEL* f = new FaceDCEL();
 	for (auto itr = points.begin(); itr != points.end(); ++itr) {
-		VertexDCEL* vertex = new VertexDCEL(*itr);
-		V.push_back(vertex);
 		HalfEdgeDCEL* left = new HalfEdgeDCEL();
 		HalfEdgeDCEL* right = new HalfEdgeDCEL();
+
+		VertexDCEL* vertex = new VertexDCEL(*itr);
+		vertex->incidentEdge = left;
+		V.push_back(vertex);
+		
 		left->origin = vertex;
 		left->twin = right;
 		left->prev = prevLeftEdge;
 		left->next = nullptr;
+		left->incidentFace = f;
 
 		right->origin = nullptr;
 		right->twin = left;
 		right->next = prevRightEdge;
 		right->prev = nullptr;
+		right->incidentFace = nullptr;
 
 		E.push_back(left);
 		E.push_back(right);
@@ -40,12 +46,13 @@ DCEL::DCEL(std::vector<glm::vec2> points) {
 	}
 	HalfEdgeDCEL* firstleft = E.front();
 	prevLeftEdge->next = firstleft;
+	firstleft->prev = prevLeftEdge;
 
 	HalfEdgeDCEL* firstright = *(E.begin() + 1);
 	prevRightEdge->prev = firstright;
 	prevRightEdge->origin = V.front();
+	firstright->next = prevRightEdge;
 
-	FaceDCEL* f = new FaceDCEL();
 	f->incidentEdge = firstleft;
 	F.push_back(f);
 }
