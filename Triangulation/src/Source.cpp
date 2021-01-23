@@ -1,5 +1,6 @@
 #include "../headers/pch.h"
 #include "../headers/DCEL.h"
+#include "../headers/Input.h"
 
 int main(void)
 {
@@ -16,6 +17,9 @@ int main(void)
         glfwTerminate();
         return -1;
     }
+
+    // Setting the callback function for neccesary input actions for glfw
+    Input::SetGLFWCallbacks(window);
 
     std::vector<glm::vec2> polygon;
     polygon.push_back(glm::vec2(0, 0));

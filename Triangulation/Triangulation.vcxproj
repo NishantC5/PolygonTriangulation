@@ -157,6 +157,7 @@
     <ClCompile Include="src\FaceDCEL.cpp" />
     <ClCompile Include="src\GeomUtil.cpp" />
     <ClCompile Include="src\HalfEdgeDCEL.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -171,6 +172,7 @@
     <ClInclude Include="headers\FaceDCEL.h" />
     <ClInclude Include="headers\GeomUtil.h" />
     <ClInclude Include="headers\HalfEdgeDCEL.h" />
+    <ClInclude Include="headers\Input.h" />
     <ClInclude Include="headers\pch.h" />
     <ClInclude Include="headers\VertexDCEL.h" />
   </ItemGroup>
