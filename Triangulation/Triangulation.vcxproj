@@ -164,6 +164,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../headers/pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../headers/pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\Source.cpp" />
     <ClCompile Include="src\Transformations.cpp" />
     <ClCompile Include="src\VertexDCEL.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="headers\HalfEdgeDCEL.h" />
     <ClInclude Include="headers\Input.h" />
     <ClInclude Include="headers\pch.h" />
+    <ClInclude Include="headers\Polygon.h" />
     <ClInclude Include="headers\Transformations.h" />
     <ClInclude Include="headers\VertexDCEL.h" />
   </ItemGroup>
