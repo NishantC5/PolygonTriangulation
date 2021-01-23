@@ -1,8 +1,11 @@
 #include "../headers/pch.h"
 #include "../headers/DCEL.h"
+#include "../headers/Input.h"
+#include "../headers/Polygon.h"
 
 int main(void)
 {
+    Input I = Input();
     GLFWwindow* window;
 
     /* Initialize the library */
@@ -10,12 +13,15 @@ int main(void)
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(700, 600, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
         return -1;
     }
+
+    // Setting the callback function for neccesary input actions for glfw
+    Input::SetGLFWCallbacks(window);
 
     std::vector<glm::vec2> polygon;
     polygon.push_back(glm::vec2(0, 0));
@@ -38,13 +44,7 @@ int main(void)
         0,1
     };
 
-    GLuint buffer;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(double), positions, GL_STATIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_DOUBLE, GL_FALSE, sizeof(double) * 2, 0);
+    Polygon P = Polygon();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -52,7 +52,12 @@ int main(void)
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glDrawArrays(GL_LINE_LOOP, 0, 3);
+        //glDrawArrays(GL_LINE_LOOP, 0, 3);
+        if (Input::DetectLeftClick(window)) {
+            P.AddVertex(Input::leftClickx, Input::leftClicky);
+        }
+
+        P.RenderPolygon();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
