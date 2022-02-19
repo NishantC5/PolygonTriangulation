@@ -6,5 +6,5 @@
 #include <vector>
 #include <stack>
 #include <iostream>
-#include <glm/glm/glm.hpp>
-#include <glm/glm/gtx/transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
