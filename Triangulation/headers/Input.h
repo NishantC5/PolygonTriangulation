@@ -10,4 +10,5 @@ public:
 private:
 	static int oldState;
 	static void LeftClick(GLFWwindow* window, int button, int action, int mods);
+	static void FrameBufferResize(GLFWwindow* window, int width, int height);
 };

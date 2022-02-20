@@ -18,7 +18,7 @@ void Polygon::AddVertex(double x, double y) {
 			throw 0;
 	}
 	catch (int num) {
-		std::cout << "Error " << num << ": Cannot add more vertices as number of vertices eexceeds the allocated space for this polygon";
+		std::cout << "Error " << num << ": Cannot add more vertices as number of vertices exceeds the allocated space for this polygon";
 		return;
 	}
 	double coordinates[] = { x,y };
